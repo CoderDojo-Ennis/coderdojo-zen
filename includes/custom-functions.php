@@ -49,7 +49,7 @@ function get_child_badge_type_meta($post_ID) {
     return $child_belt_type;
 }
 
-function coderdojo_grading_get_badges() {
+function get_badges() {
     
     $args = array(
         'numberposts'	=> -1,

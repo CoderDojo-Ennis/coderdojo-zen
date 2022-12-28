@@ -1,6 +1,6 @@
 <?php
 
-function coderdojo_grading_register_terms() {
+function cdzen_register_terms() {
     
     /*
     * Taxonomy: Badge Type.
@@ -143,6 +143,6 @@ function coderdojo_grading_register_terms() {
     }
 
 }
-add_action( 'init', 'coderdojo_grading_register_terms' );
+add_action( 'init', 'cdzen_register_terms' );
 
 

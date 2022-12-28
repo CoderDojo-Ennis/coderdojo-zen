@@ -1,7 +1,7 @@
 <?php
 
 // Add meta boxes to top level parent only
-function coderdojo_grading_register_metaboxes( $post_type, $post ) {
+function cdzen_register_metaboxes( $post_type, $post ) {
     
 	if ($post_type != 'badge') {
 		return;
@@ -17,7 +17,7 @@ function coderdojo_grading_register_metaboxes( $post_type, $post ) {
 	);
 	
 }
-add_action( 'add_meta_boxes', 'coderdojo_grading_register_metaboxes', 10, 2 );
+add_action( 'add_meta_boxes', 'cdzen_register_metaboxes', 10, 2 );
 
 function badge_metabox_callback(){
 	

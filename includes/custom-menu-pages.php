@@ -9,30 +9,30 @@
  * @since 1.0.0
  */
 
-function coderdojo_grading_register_menu_pages() {
+function cdzen_register_menu_pages() {
     
     global $submenu;
 
     $belts_link = array(
-        __( 'All Belts', 'coderdojo-grading' ),
+        __( 'All Belts', 'coderdojo-zen' ),
         'edit_posts',
         'edit.php?post_type=belt'
     );
 
     $programming_link = array(
-        __( 'Programming Badges', 'coderdojo-grading' ),
+        __( 'Programming Badges', 'coderdojo-zen' ),
         'edit_posts',
         'edit.php?post_type=badge&badge_type=programming'
     );
 
     $social_link = array(
-        __( 'Soft Skills Badges', 'coderdojo-grading' ),
+        __( 'Soft Skills Badges', 'coderdojo-zen' ),
         'edit_posts',
         'edit.php?post_type=badge&badge_type=soft-skills'
     );
 
     $event_link = array(
-        __( 'Events Badges', 'coderdojo-grading' ),
+        __( 'Events Badges', 'coderdojo-zen' ),
         'edit_posts',
         'edit.php?post_type=badge&badge_type=events'
     );
@@ -47,12 +47,12 @@ function coderdojo_grading_register_menu_pages() {
     unset($submenu['edit.php?post_type=badge'][10]);
 
 }
-add_action( 'admin_menu', 'coderdojo_grading_register_menu_pages' );
+add_action( 'admin_menu', 'cdzen_register_menu_pages' );
 
 /**
  * Fix Parent Admin Menu Item
  */
-function coderdojo_grading_parent_file( $parent_file ){
+function cdzen_parent_file( $parent_file ){
  
     global $current_screen;
     global $submenu_file;
@@ -64,9 +64,9 @@ function coderdojo_grading_parent_file( $parent_file ){
     }
     return $parent_file;
 }
-add_filter( 'parent_file', 'coderdojo_grading_parent_file' );
+add_filter( 'parent_file', 'cdzen_parent_file' );
 
-function coderdojo_grading_badge_type_filter($post_type ){
+function cdzen_badge_type_filter($post_type ){
     
     if( $post_type !== 'badge' || !isset( $_REQUEST[ 'badge_type' ])){
         return;
@@ -95,4 +95,4 @@ function coderdojo_grading_badge_type_filter($post_type ){
     <?php
     
 }
-add_action('restrict_manage_posts','coderdojo_grading_badge_type_filter');
+add_action('restrict_manage_posts','cdzen_badge_type_filter');
