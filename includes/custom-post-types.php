@@ -4,12 +4,12 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package CoderDojo Grading
+ * @package CoderDojo Zen
  * @subpackage CoderDojo
  * @since 1.0.0
  */
 
-function coderdojo_grading_register_custom_post_types() {
+function cdzen_register_custom_post_types() {
 
     /**  
 	 * Post Type: Belts.
@@ -82,7 +82,7 @@ function coderdojo_grading_register_custom_post_types() {
 	$labels = [
 		"name" => __( "Badges", "coderdojo" ),
 		"singular_name" => __( "Badge", "coderdojo" ),
-		"menu_name" => __( "Grading", "coderdojo" ),
+		"menu_name" => __( "Awards", "coderdojo" ),
 		"all_items" => __( "All Badges", "coderdojo" ),
 		"add_new" => __( "Add new", "coderdojo" ),
 		"add_new_item" => __( "Add new Badge", "coderdojo" ),
@@ -143,6 +143,6 @@ function coderdojo_grading_register_custom_post_types() {
 
 }
 
-add_action( 'init', 'coderdojo_grading_register_custom_post_types' );
+add_action( 'init', 'cdzen_register_custom_post_types' );
 
 

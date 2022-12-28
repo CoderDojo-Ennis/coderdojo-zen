@@ -1,6 +1,6 @@
 <?php
 
-function coderdojo_grading_register_taxonomies() {
+function cdzen_register_taxonomies() {
     /**
 	 * Taxonomy: Badge Type.
 	 */
@@ -50,4 +50,4 @@ function coderdojo_grading_register_taxonomies() {
 
 }
 
-add_action( 'init', 'coderdojo_grading_register_taxonomies' );
+add_action( 'init', 'cdzen_register_taxonomies' );
