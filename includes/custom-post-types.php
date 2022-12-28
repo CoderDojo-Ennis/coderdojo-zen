@@ -4,8 +4,8 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package CoderDojo Zen
- * @subpackage CoderDojo
+ * @package CoderDojo
+ * @subpackage CoderDojo Zen
  * @since 1.0.0
  */
 

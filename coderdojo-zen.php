@@ -58,8 +58,54 @@ require_once dirname( __FILE__ ) . '/includes/custom-meta-boxes.php';
 /** Custom User Details */
 require_once dirname( __FILE__ ) . '/includes/custom-user-details.php';
 
+
 function cdzen_enqueue_block_editor_assets() {   
     wp_enqueue_script( 'coderdojo_grading_editor__script', plugin_dir_url( __FILE__ ) . 'assets/js/editor-index.js' );
 	wp_localize_script( 'coderdojo_grading_editor__script', 'coderdojoajax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 }
 add_action('enqueue_block_editor_assets', 'cdzen_enqueue_block_editor_assets');
+
+function cdzen_add_zen_pages() {
+	// Create post object
+	$profile_post = array(
+		'post_title'    => wp_strip_all_tags( 'Profile' ),
+		'post_content'  => 'Profile Page',
+		'post_status'   => 'publish',
+		'post_author'   => 1,
+		'post_type'     => 'page',
+		'page_template' => 'profile',
+	);
+
+	// Insert the post into the database
+	wp_insert_post( $profile_post );
+
+	// Create post object
+	$dashboard_post = array(
+		'post_title'    => wp_strip_all_tags( 'Dashboard' ),
+		'post_content'  => '',
+		'post_status'   => 'publish',
+		'post_author'   => 1,
+		'post_type'     => 'page',
+	);
+
+	// Insert the post into the database
+	wp_insert_post( $dashboard_post );
+}
+register_activation_hook(__FILE__, 'cdzen_add_zen_pages');
+
+function cdzen_login_redirect( $redirect_to, $request, $user ) {
+	//is there a user to check?
+	if ( isset( $user->roles ) && is_array( $user->roles ) ) {
+		//check for admins
+		if ( in_array( 'administrator', $user->roles ) ) {
+			// redirect them to the default place
+			return $redirect_to;
+		} else {
+			return home_url('/dashboard');
+		}
+	} else {
+		return $redirect_to;
+	}
+}
+
+add_filter( 'login_redirect', 'cdzen_login_redirect', 10, 3 );
