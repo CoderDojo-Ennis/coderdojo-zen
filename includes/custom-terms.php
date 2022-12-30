@@ -142,6 +142,45 @@ function cdzen_register_terms() {
         );
     }
 
+	/*
+* Taxonomy: Resource Types.
+*/
+	wp_insert_term(
+		'Mentor',
+		'ticket_types',
+		array(
+			'description' => 'This content is reviewed by the CoderDojo Foundation and is the recommended starting point for a Dojo or Ninja that’s just beginning to address the topic.',
+			'slug'        => 'mentor'
+		)
+	);
+
+	wp_insert_term(
+		'Other',
+		'types',
+		array(
+			'description' => 'Ninjas who have completed the core resources at a specific level and want to learn more related things, without going deeper into the topic yet.',
+			'slug'        => 'other'
+		)
+	);
+
+	wp_insert_term(
+		'Parent/Guardian',
+		'types',
+		array(
+			'description' => 'Learn to build apps and games to help people learn about important issues.',
+			'slug'        => 'parent-guardian'
+		)
+	);
+
+	wp_insert_term(
+		'Youth',
+		'types',
+		array(
+			'description' => 'Ideas for Ninjas or Dojos for more projects they can undertake with the skills they have learned.',
+			'slug'        => 'youth'
+		)
+	);
+
 }
 add_action( 'init', 'cdzen_register_terms' );
 

@@ -48,6 +48,52 @@ function cdzen_register_taxonomies() {
 	];
 	register_taxonomy( "badge_type", [ "badge" ], $args );
 
+	$labels = [
+		"name" => __( "Ticket Types", "coderdojo-kata" ),
+		"singular_name" => __( "Ticket Type", "coderdojo-kata" ),
+		"menu_name" => __( "Ticket Types", "coderdojo-kata" ),
+		"all_items" => __( "All Ticket Types", "coderdojo-kata" ),
+		"edit_item" => __( "Edit Ticket Type", "coderdojo-kata" ),
+		"view_item" => __( "View Ticket Type", "coderdojo-kata" ),
+		"update_item" => __( "Update Ticket Type name", "coderdojo-kata" ),
+		"add_new_item" => __( "Add new Ticket Type", "coderdojo-kata" ),
+		"new_item_name" => __( "New Ticket Type name", "coderdojo-kata" ),
+		"parent_item" => __( "Parent Ticket Type", "coderdojo-kata" ),
+		"parent_item_colon" => __( "Parent Ticket Type:", "coderdojo-kata" ),
+		"search_items" => __( "Search Ticket Types", "coderdojo-kata" ),
+		"popular_items" => __( "Popular Ticket Types", "coderdojo-kata" ),
+		"separate_items_with_commas" => __( "Separate Ticket Types with commas", "coderdojo-kata" ),
+		"add_or_remove_items" => __( "Add or remove Ticket Types", "coderdojo-kata" ),
+		"choose_from_most_used" => __( "Choose from the most used Ticket Types", "coderdojo-kata" ),
+		"not_found" => __( "No Ticket Types found", "coderdojo-kata" ),
+		"no_terms" => __( "No Ticket Types", "coderdojo-kata" ),
+		"items_list_navigation" => __( "Ticket Types list navigation", "coderdojo-kata" ),
+		"items_list" => __( "Ticket Types list", "coderdojo-kata" ),
+		"back_to_items" => __( "Back to Ticket Types", "coderdojo-kata" ),
+	];
+
+
+	$args = [
+		"label" => __( "Ticket Types", "coderdojo-zen" ),
+		"labels" => $labels,
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => false,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'types', 'with_front' => true, ],
+		"show_admin_column" => true,
+		"show_in_rest" => false,
+		"rest_base" => "types",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		"show_in_quick_edit" => true,
+		"sort" => true,
+		"show_in_graphql" => false,
+	];
+	register_taxonomy( "ticket_types", [ "ticket" ], $args );
+
 }
 
 add_action( 'init', 'cdzen_register_taxonomies' );
